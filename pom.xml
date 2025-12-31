@@ -12,13 +12,47 @@
 
     <groupId>io.github.tjlwww</groupId>
     <artifactId>tjlwww-spring-boot-starter-modbus</artifactId>
-    <version>1.0.0</version>
+    <version>0.1.0</version>
+
+    <name>tjlwww-spring-boot-starter-modbus</name>
+    <description>Spring Boot Starter for Modbus (modbus4j based)</description>
+    <url>https://github.com/tjlwww/tjlwww-spring-boot-starter-modbus</url>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>https://github.com/tjlwww/tjlwww-spring-boot-starter-modbus</url>
+        <connection>scm:git:https://github.com/tjlwww/tjlwww-spring-boot-starter-modbus.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:tjlwww/tjlwww-spring-boot-starter-modbus.git</developerConnection>
+    </scm>
+
+    <developers>
+        <developer>
+            <id>tjlwww</id>
+            <name>tjlwww</name>
+            <email>tjlwww@gmail.com</email>
+        </developer>
+    </developers>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/tjlwww/tjlwww-spring-boot-starter-modbus</url>
+        </repository>
+    </distributionManagement>
 
     <repositories>
         <repository>
@@ -67,5 +101,58 @@
             <version>3.0.5</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+
+            <!-- source -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.3.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- javadoc -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.6.3</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- gpg -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>3.2.4</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
+
 
 </project>
